@@ -9662,6 +9662,9 @@ ex_redraw(eap)
     need_wait_return = FALSE;
 
     out_flush();
+#if defined(FEAT_GUI_MACVIM)
+    gui_macvim_flush();
+#endif
 }
 
 /*
@@ -9685,6 +9688,9 @@ ex_redrawstatus(eap)
     RedrawingDisabled = r;
     p_lz = p;
     out_flush();
+#if defined(FEAT_GUI_MACVIM)
+    gui_macvim_flush();
+#endif
 #endif
 }
 
